@@ -1,13 +1,20 @@
 import React, { useState } from "react"
 import { Link } from "react-router-dom"
 import logo from "../images/skill.png"
+import { validateEmail, validatePassword } from "../utils/validation"
 
 export const Login = () => {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
+  const [emailValidError, setEmailValidError] = useState("")
+  const [passwordValidError, setPasswordValidError] = useState("")
 
   function handleSubmit(e) {
     e.preventDefault()
+    if (validateEmail(email) || validatePassword(password)) {
+      setEmailValidError(validateEmail(email))
+      setPasswordValidError(validatePassword(password))
+    }
     console.log(email, password)
   }
 
@@ -34,8 +41,10 @@ export const Login = () => {
             onChange={(e) => {
               setEmail(e.target.value)
             }}
-            className="mx-3 mb-6 p-3 border-[#CFDBE8] border-2 border-solid rounded-md outline-[#6A8FD9] placeholder:text-[#4A739C] transition-all duration-300"
+            className="mx-3 p-3 border-[#CFDBE8] border-2 border-solid rounded-md outline-[#6A8FD9] placeholder:text-[#4A739C] transition-all duration-300"
           />
+
+          <p className="text-red-500 mb-6 mx-3">{emailValidError}</p>
 
           <input
             type="password"
@@ -44,8 +53,10 @@ export const Login = () => {
             onChange={(e) => {
               setPassword(e.target.value)
             }}
-            className="mx-3 mb-6 p-3 border-[#CFDBE8] border-2 border-solid rounded-md outline-[#6A8FD9] placeholder:text-[#4A739C] transition-all duration-300"
+            className="mx-3 p-3 border-[#CFDBE8] border-2 border-solid rounded-md outline-[#6A8FD9] placeholder:text-[#4A739C] transition-all duration-300"
           />
+
+          <p className="text-red-500 mb-6 mx-3">{passwordValidError}</p>
 
           <input
             type="submit"
