@@ -1,1 +1,10 @@
 @import "tailwindcss";
+
+:root {
+  --bg-color: #F7FAFC;
+}
+
+body {
+  font-family: manrope, sans-serif;
+  background-color: var(--bg-color);
+}
