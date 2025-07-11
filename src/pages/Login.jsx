@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import { Link } from "react-router-dom"
+import logo from "../images/skill.png"
 
 export const Login = () => {
   const [email, setEmail] = useState("")
@@ -12,8 +13,9 @@ export const Login = () => {
 
   return (
     <>
-      <header className="py-3 border-[#E5E8EB] border-b-2 border-solid">
-        <div className="mx-auto py- container px-4 sm:px-0">
+      <header className="border-[#E5E8EB] border-b-2 border-solid">
+        <div className="py-3 mx-auto container px-4 sm:px-0 flex gap-1 items-end">
+          <img src={logo} alt="logo" className="w-8 h-8" />
           <h1 className="font-bold text-2xl">SkillSwap</h1>
         </div>
       </header>
