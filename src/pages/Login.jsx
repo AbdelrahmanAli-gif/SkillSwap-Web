@@ -1,22 +1,41 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import logo from "../images/skill.png"
 import { validateEmail, validatePassword } from "../utils/validation"
+import { signInWithEmailAndPassword } from "firebase/auth"
+import { auth } from "../firebase"
 
 export const Login = () => {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [emailValidError, setEmailValidError] = useState("")
   const [passwordValidError, setPasswordValidError] = useState("")
+  const [triedSubmit, setTriedSubmit] = useState(false)
 
   function handleSubmit(e) {
     e.preventDefault()
-    if (validateEmail(email) || validatePassword(password)) {
+    setTriedSubmit(true)
+
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user
+        // ...
+        alert("Login successful")
+      })
+      .catch((error) => {
+        const errorCode = error.code
+        const errorMessage = error.message
+        alert("Login failed, " + errorMessage)
+      })
+  }
+
+  useEffect(() => {
+    if (triedSubmit) {
       setEmailValidError(validateEmail(email))
       setPasswordValidError(validatePassword(password))
     }
-    console.log(email, password)
-  }
+  }, [email, password, triedSubmit])
 
   return (
     <>
@@ -28,10 +47,10 @@ export const Login = () => {
       </header>
 
       <main className="flex flex-col justify-center items-center mx-auto pt-16 container">
-        <h1 className="font-normal text-3xl">Welcome to SkillSwap</h1>
+        <h1 className="font-normal text-3xl text-center">Welcome to SkillSwap</h1>
 
         <form
-          className="flex flex-col mt-8 mb-6 min-w-1/2 sm:min-w-1/3"
+          className="flex flex-col mt-8 mb-6 min-w-[80%] sm:min-w-3/4 lg:min-w-[500px]"
           onSubmit={(e) => handleSubmit(e)}
         >
           <input
@@ -74,7 +93,7 @@ export const Login = () => {
 
         <p className="mb-6 text-[#4A739C]">Or log in with</p>
 
-        <button className="bg-[#0D80F2] hover:shadow-md mb-6 p-2 rounded-md w-1/3 text-[#F7FAFC] transition-all duration-300 cursor-pointer">
+        <button className="bg-[#0D80F2] hover:shadow-md mb-6 p-2 rounded-md min-w-[80%] sm:min-w-3/4 lg:min-w-[500px] text-[#F7FAFC] transition-all duration-300 cursor-pointer">
           Continue with Google
         </button>
 
