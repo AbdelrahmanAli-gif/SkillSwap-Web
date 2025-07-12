@@ -4,6 +4,29 @@
   --bg-color: #F7FAFC;
 }
 
+
+@font-face {
+  font-family: 'Manrope';
+  src: url('./assets/fonts/Manrope-Regular.ttf') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Manrope';
+  src: url('./assets/fonts/Manrope-Bold.ttf') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Manrope';
+  src: url('./assets/fonts/Manrope-ExtraBold.ttf') format('woff2');
+  font-weight: 800;
+  font-style: normal;
+}
+
+
 body {
   font-family: manrope, sans-serif;
   background-color: var(--bg-color);
