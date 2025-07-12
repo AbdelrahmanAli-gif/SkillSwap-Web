@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
-import logo from "../images/skill.png"
+import logo from "../assets/images/skill.png"
 import { validateEmail, validatePassword } from "../utils/validation"
 import { signInWithEmailAndPassword } from "firebase/auth"
 import { auth } from "../firebase"
