@@ -1,4 +1,10 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Optional: Flowbite components */
+@import 'flowbite';
+
 
 :root {
   --bg-color: #F7FAFC;
