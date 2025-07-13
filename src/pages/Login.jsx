@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import logo from "../assets/images/skill.png";
-import { validateEmail, validatePassword } from "../utils/validation";
-import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../firebase";
-import useAuth from "../hooks/useAuth";
+
+import React, { useEffect, useState } from "react"
+import { Link } from "react-router-dom"
+import logo from "../assets/images/skill.png"
+import { validateEmail, validatePassword } from "../utils/validation"
+import { signInWithEmailAndPassword } from "firebase/auth"
+import { auth, signInWithGoogle } from "../firebase"
+
 
 export const Login = () => {
   const [email, setEmail] = useState("");
@@ -13,8 +14,14 @@ export const Login = () => {
   const [passwordValidError, setPasswordValidError] = useState("");
   const [triedSubmit, setTriedSubmit] = useState(false);
 
-  const { user, loading, error, signInWithGoogle } = useAuth();
-  const navigate = useNavigate();
+  
+
+  useEffect(() => {
+    if (triedSubmit) {
+      setEmailValidError(validateEmail(email))
+      setPasswordValidError(validatePassword(password))
+    }
+  }, [email, password, triedSubmit])
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -34,18 +41,16 @@ export const Login = () => {
       });
   }
 
-  useEffect(() => {
-    if (triedSubmit) {
-      setEmailValidError(validateEmail(email));
-      setPasswordValidError(validatePassword(password));
-    }
-  }, [email, password, triedSubmit]);
 
-  useEffect(() => {
-    if (user) {
-      navigate("/landing");
-    }
-  }, [user, navigate]);
+  function handleSignInWithGoogle() {
+    signInWithGoogle().then(res => {
+      const user = res.user
+      console.log('Signed In as ' + user.displayName)
+    }).catch(error => {
+      console.log(error)
+    }) 
+  }
+
 
   return (
     <>
@@ -98,7 +103,7 @@ export const Login = () => {
         <p className="mb-6 text-[#4A739C]">Or log in with</p>
 
         <button
-          onClick={signInWithGoogle}
+          onClick={handleSignInWithGoogle}
           className="bg-[#0D80F2] hover:shadow-md mb-6 p-2 rounded-md min-w-[80%] sm:min-w-3/4 lg:min-w-[500px] text-[#F7FAFC] transition-all duration-300 cursor-pointer"
         >
           Continue with Google

@@ -8,13 +8,13 @@ export default function LandingPage() {
   return (
     <>
       <div className="w-full bg-white">
-        <div className="container max-w-[1000px] mx-auto">
           <HeroSection />
+        <div className="container max-w-[1000px] mx-auto">
           <HowWorkSection />
           <SuccessStories />
 
           <section className="flex flex-col justify-content:center align-center gap-8 px-10 py-20">
-            <h2 className="text-4xl font-extrabold">
+            <h2 className="text-4xl font-extrabold text-center">
               Ready to Start Your Skill Sharing Journey?
             </h2>
             <div className="text-center">
