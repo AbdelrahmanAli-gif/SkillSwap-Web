@@ -9,7 +9,7 @@ function HeroSection() {
     <section className="relative w-full h-[550px] overflow-hidden">
       {/* Background Video */}
       <video
-        className="absolute top-0 left-0 w-full h-full object-fill"
+        className="absolute top-0 left-0 w-full h-full object-cover"
         src={heroVideo}
         autoPlay
         loop

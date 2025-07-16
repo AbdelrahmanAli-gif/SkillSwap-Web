@@ -6,6 +6,7 @@ import LandingFooter from "./Footer";
 import Button from "../../components/Button";
 import { useTranslation } from "react-i18next";
 import { FaArrowRight } from "react-icons/fa";
+import Header from "../../components/Header";
 
 export default function LandingPage() {
   const { t, i18n } = useTranslation();
@@ -13,20 +14,24 @@ export default function LandingPage() {
   return (
     <>
       <div className="w-full bg-white">
-        <Button
+        
+
+        <Header>
+          <Button
+            value={i18n.language === "en" ? "English" : "العربية"}
+            onPress={() =>
+              i18n.language === "en"
+                ? i18n.changeLanguage("ar")
+                : i18n.changeLanguage("en")
+            }
+            variant="secondary"
+          />
+          <Button
           value={"Next"}
           onPress={() => {}}
           icon={<FaArrowRight size={14} />}
         />
-        <Button
-          value={i18n.language === "en" ? "English" : "العربية"}
-          onPress={() =>
-            i18n.language === "en"
-              ? i18n.changeLanguage("ar")
-              : i18n.changeLanguage("en")
-          }
-          variant="secondary"
-        />
+        </Header>
 
         <HeroSection />
         <div className="container max-w-[1000px] mx-auto">
