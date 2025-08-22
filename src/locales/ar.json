@@ -99,6 +99,29 @@
     "all": "الكل",
     "unread": "غير المقروءة"
   },
+  "videoCall": {
+    "startVideoCall": "بدء مكالمة فيديو",
+    "clickToStart": "انقر لبدء مكالمة فيديو مع هذا المستخدم",
+    "incomingVideoCall": "مكالمة فيديو واردة",
+    "wantsToVideoCall": "يريد بدء مكالمة فيديو",
+    "answer": "إجابة",
+    "reject": "رفض",
+    "videoCall": "مكالمة فيديو",
+    "connected": "متصل",
+    "ringing": "يرن...",
+    "connecting": "يتصل...",
+    "ended": "انتهت المكالمة",
+    "rejected": "تم رفض المكالمة",
+    "unknownCaller": "متصل مجهول",
+    "endCall": "إنهاء المكالمة",
+    "toggleVideo": "تبديل الفيديو",
+    "toggleAudio": "تبديل الصوت",
+    "waitingForConnection": "في انتظار الاتصال...",
+    "establishingConnection": "إنشاء الاتصال...",
+    "waitingForAnswer": "في انتظار الإجابة...",
+    "localVideo": "الفيديو المحلي"
+  },
+  
 
   "chat": {
     "chat": "الدردشة مع",

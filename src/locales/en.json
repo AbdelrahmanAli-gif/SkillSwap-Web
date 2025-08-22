@@ -98,6 +98,28 @@
     "all": "All",
     "unread": "Unread"
   },
+  "videoCall": {
+    "startVideoCall": "Start Video Call",
+    "clickToStart": "Click to start a video call with this user",
+    "incomingVideoCall": "Incoming Video Call",
+    "wantsToVideoCall": "wants to start a video call",
+    "answer": "Answer",
+    "reject": "Reject",
+    "videoCall": "Video Call",
+    "connected": "Connected",
+    "ringing": "Ringing...",
+    "connecting": "Connecting...",
+    "ended": "Call Ended",
+    "rejected": "Call Rejected",
+    "unknownCaller": "Unknown Caller",
+    "endCall": "End Call",
+    "toggleVideo": "Toggle Video",
+    "toggleAudio": "Toggle Audio",
+    "waitingForConnection": "Waiting for connection...",
+    "establishingConnection": "Establishing connection...",
+    "waitingForAnswer": "Waiting for answer...",
+    "localVideo": "Local Video"
+  },
   "chat": {
     "chat": " Chat with",
     "Back": "Back",
